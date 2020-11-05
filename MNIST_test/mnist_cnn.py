@@ -28,13 +28,14 @@ num_filters = 8
 filter_size = 3
 pool_size = 2
 
+# Suggestions - 8, 12 filters; 12, 16 filters; 1 layer, 8 filters. 
 model = Sequential([
     # First conv layer
-    Conv2D(num_filters, filter_size, input_shape=(28, 28, 1)),
+    Conv2D(num_filters, filter_size, input_shape=(28, 28, 1)), #only need input shape for first layer
     MaxPooling2D(pool_size=pool_size),
 
     # Second conv layer for flex
-    Conv2D(12, filter_size, input_shape=(14, 14, 1)),
+    Conv2D(12, filter_size),
     MaxPooling2D(pool_size=pool_size),
 
     # Flatten before softmax (Dense takes 1D array)
