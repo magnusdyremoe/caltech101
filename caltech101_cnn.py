@@ -6,11 +6,9 @@ import numpy as np
 from tensorflow import keras
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Dense, Flatten
+from tensorflow.keras.utils import to_categorical
 
 
-import numpy as np
-
-from sklearn.model_selection import train_test_split
 
 #Defining the model
 model = Sequential([
@@ -20,37 +18,56 @@ model = Sequential([
     MaxPooling2D(3, 3),
     Flatten(),
     Dense(32, activation='relu'),
-    Dense(8, activation='relu'),
     Dense(1, activation='sigmoid')
 ])
 
 #model.summary()
 
-image_generator = ImageDataGenerator(rescale=1./255.,
-                                        rotation_range=40,
-                                        zoom_range=0.2,
-                                        horizontal_flip=True,
-                                        vertical_flip=True)
 
-test_datagenerator = ImageDataGenerator( rescale=1./255. )
-
-image_root = '../caltech101/101_objectcategories'
+train_root = '../caltech101/101_objectcategories/train'
+val_root = '../caltech101/101_objectcategories/val'
 image_size = 224
 
-data_gen = test_datagenerator.flow_from_directory(image_root,
-                                                    target_size=(image_size, image_root),
+train_datagen = ImageDataGenerator(rescale=1./255.)
+
+train_dataset = train_datagen.flow_from_directory(
+    train_root,
+                                                    target_size=(image_size, image_size),
                                                     batch_size=40,
                                                     shuffle=False,
                                                     class_mode=None)
                                         
-num_images = len(data_gen.filenames)
-num_epochs = int(np.ceil(num_images / 140))
-
-print("Number of images: ", num_images)
+train_images = len(train_dataset.filenames)
+num_epochs = 3 #int(np.ceil(train_images / 140))
+print("Number of training images: ", train_images)
 print("Number of epochs: ", num_epochs)
 
-train_data, test_data, 
+val_datagen = ImageDataGenerator(rescale=1./255.)
 
-model.compile(optimizer=RMSprop(lr=0.01),
-                loss='binary_crossentropy',
-                metrics = ['accuracy'])
+val_dataset = val_datagen.flow_from_directory(
+    val_root,
+    target_size=(image_size, image_size)
+)
+
+val_images = len(val_dataset.filenames)
+print("NUmber of validation images: ", val_images)
+
+#print(train_dataset[0])
+#print(val_dataset.classes.shape)
+
+model.compile(
+    optimizer='adam',
+    loss='categorical_crossentropy',
+    metrics = ['accuracy'],
+)
+
+val_labels = val_dataset.class_indices
+print(val_labels)
+
+## TRAINING
+model.fit(
+    train_dataset,
+    to_categorical(train_dataset.classes),
+    epochs=num_epochs,
+    validation_data=(val_dataset, to_categorical(val_dataset.classes)),
+)
