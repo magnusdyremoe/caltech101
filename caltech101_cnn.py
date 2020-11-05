@@ -12,13 +12,15 @@ from tensorflow.keras.utils import to_categorical
 
 #Defining the model
 model = Sequential([
-    Conv2D(32, (3,3), activation='relu'),
+    Conv2D(64, (3,3), activation='relu'),
     MaxPooling2D(2, 2),
-    Conv2D(32, (5,5), activation='relu'),
+    Conv2D(128, (5,5), activation='relu'),
     MaxPooling2D(3, 3),
+    Conv2D(512, (3,3), activation='relu'),
+    MaxPooling2D(5, 5),
     Flatten(),
-    Dense(32, activation='relu'),
-    Dense(1, activation='sigmoid')
+    Dense(256, activation='relu'),
+    Dense(102, activation='softmax')
 ])
 
 #model.summary()
@@ -33,12 +35,12 @@ train_datagen = ImageDataGenerator(rescale=1./255.)
 train_dataset = train_datagen.flow_from_directory(
     train_root,
     target_size=(image_size, image_size),
-    batch_size=40,
+    batch_size=1,
     shuffle=False
 )
                                         
 train_images = len(train_dataset.filenames)
-num_epochs = 3 #int(np.ceil(train_images / 140))
+num_epochs = 10 #int(np.ceil(train_images / 140))
 print("Number of training images: ", train_images)
 print("Number of epochs: ", num_epochs)
 
@@ -47,7 +49,7 @@ val_datagen = ImageDataGenerator(rescale=1./255.)
 val_dataset = val_datagen.flow_from_directory(
     val_root,
     target_size=(image_size, image_size),
-    batch_size=40
+    batch_size=1
 )
 
 val_images = len(val_dataset.filenames)
@@ -69,5 +71,5 @@ print(val_labels)
 model.fit(
     train_dataset,
     validation_data=val_dataset,
-    epochs=3
+    epochs=num_epochs
 )
