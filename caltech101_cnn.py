@@ -32,10 +32,10 @@ train_datagen = ImageDataGenerator(rescale=1./255.)
 
 train_dataset = train_datagen.flow_from_directory(
     train_root,
-                                                    target_size=(image_size, image_size),
-                                                    batch_size=40,
-                                                    shuffle=False,
-                                                    class_mode=None)
+    target_size=(image_size, image_size),
+    batch_size=40,
+    shuffle=False
+)
                                         
 train_images = len(train_dataset.filenames)
 num_epochs = 3 #int(np.ceil(train_images / 140))
@@ -46,7 +46,8 @@ val_datagen = ImageDataGenerator(rescale=1./255.)
 
 val_dataset = val_datagen.flow_from_directory(
     val_root,
-    target_size=(image_size, image_size)
+    target_size=(image_size, image_size),
+    batch_size=40
 )
 
 val_images = len(val_dataset.filenames)
@@ -67,7 +68,6 @@ print(val_labels)
 ## TRAINING
 model.fit(
     train_dataset,
-    to_categorical(train_dataset.classes),
-    epochs=num_epochs,
-    validation_data=(val_dataset, to_categorical(val_dataset.classes)),
+    validation_data=val_dataset,
+    epochs=3
 )
