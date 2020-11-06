@@ -12,12 +12,12 @@ from tensorflow.keras.utils import to_categorical
 
 #Defining the model
 model = Sequential([
-    Conv2D(64, (3,3), activation='relu'),
-    MaxPooling2D(2, 2),
-    Conv2D(128, (5,5), activation='relu'),
-    MaxPooling2D(3, 3),
-    Conv2D(512, (3,3), activation='relu'),
-    MaxPooling2D(5, 5),
+    Conv2D(64, (3,3), activation='relu', padding='same'),
+    MaxPooling2D(pool_size=(2,2), strides=(2,2)),
+    Conv2D(128, (3,3), activation='relu', padding='same'),
+    MaxPooling2D(pool_size=(2,2), strides=(2,2)),
+    Conv2D(256, (3,3), activation='relu', padding='same'),
+    MaxPooling2D(pool_size=(2,2), strides=(2,2)),
     Flatten(),
     Dense(256, activation='relu'),
     Dense(102, activation='softmax')
@@ -35,7 +35,7 @@ train_datagen = ImageDataGenerator(rescale=1./255.)
 train_dataset = train_datagen.flow_from_directory(
     train_root,
     target_size=(image_size, image_size),
-    batch_size=1,
+    batch_size=32,
     shuffle=False
 )
                                         
@@ -49,7 +49,7 @@ val_datagen = ImageDataGenerator(rescale=1./255.)
 val_dataset = val_datagen.flow_from_directory(
     val_root,
     target_size=(image_size, image_size),
-    batch_size=1
+    batch_size=32
 )
 
 val_images = len(val_dataset.filenames)
