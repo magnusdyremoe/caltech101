@@ -9,8 +9,11 @@ categories_train = os.listdir(data_path)
 test_path = os.path.join(base_path, "101_ObjectCategories/val")
 categories_val = os.listdir(test_path)
 
+#Better?
+#assert categories_train != categories_val,"dissimilar categories" 
+
 if categories_train == categories_val:
-    print("Same shit yo")
+    print("similar categories")
 
 images_in_class = {}
 for cat in categories_train:
