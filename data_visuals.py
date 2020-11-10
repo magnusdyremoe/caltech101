@@ -6,22 +6,27 @@ import matplotlib.pyplot as plt
 base_path = os.getcwd()
 data_path = os.path.join(base_path, "101_ObjectCategories/train")
 categories_train = os.listdir(data_path)
-test_path = os.path.join(base_path, "101_ObjectCategories/val")
-categories_val = os.listdir(test_path)
+test_path = os.path.join(base_path, "101_ObjectCategories/test")
+categories_test = os.listdir(test_path)
+val_path = os.path.join(base_path, "101_ObjectCategories/val")
+categories_val = os.listdir(val_path)
 
-#Better?
-#assert categories_train != categories_val,"dissimilar categories" 
+assert categories_train == categories_test == categories_val, (
+    "Not similar categories"
+) 
 
-if categories_train == categories_val:
-    print("similar categories")
 
 images_in_class = {}
 for cat in categories_train:
     image_files = os.listdir(os.path.join(data_path, cat))
     images_in_class[cat] = len(image_files)
 
-for cat in categories_val:
+for cat in categories_test:
     image_files = os.listdir(os.path.join(test_path, cat))
+    images_in_class[cat] += len(image_files)
+
+for cat in categories_val:
+    image_files = os.listdir(os.path.join(val_path, cat))
     images_in_class[cat] += len(image_files)
 
 plt.figure(figsize=(12,5))
