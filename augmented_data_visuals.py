@@ -20,7 +20,7 @@ data_gen = ImageDataGenerator(rescale=1./255.,
 
 dataset = data_gen.flow_from_directory(data_path)
 
-augmented_images = [dataset[40][0][0] for i in range(5)]
+augmented_images = [dataset[0][0][0] for i in range(5)]
 
 fig, ax = plt.subplots(1, 5)
 ax = ax.flatten()

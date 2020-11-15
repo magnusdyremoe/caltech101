@@ -38,7 +38,9 @@ train_dataset = train_datagen.flow_from_directory(
     batch_size=32,
     shuffle=False
 )
-                                        
+
+
+                                    
 train_images = len(train_dataset.filenames)
 num_epochs = 10 #int(np.ceil(train_images / 140))
 print("Number of training images: ", train_images)

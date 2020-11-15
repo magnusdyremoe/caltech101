@@ -31,14 +31,14 @@ for cat in categories_val:
     image_files = os.listdir(os.path.join(val_path, cat))
     images_in_class[cat] += len(image_files)
 
-"""
+
 # Display number of images per object category
 plt.figure(figsize=(12,5))
 plt.bar(range(len(images_in_class)), list(images_in_class.values()), align='edge', width=0.8)
 plt.xticks(range(len(images_in_class)), list(images_in_class.keys()), rotation='vertical', fontsize=8)
 plt.tight_layout()
 plt.show()
-"""
+
 
 
 # Visualize images in 4 randomly selected classes.
@@ -47,6 +47,7 @@ num_images = 4
 
 random_categories = random.sample(list(images_in_class), num_categories)
 print(random_categories)
+#selected_categories = ['elephant', 'hawksbill', 'binocular', 'lotus']
 
 fig, ax = plt.subplots(nrows=num_categories, ncols=num_images)
 
