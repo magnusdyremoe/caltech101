@@ -16,8 +16,8 @@ Input following line in VM PuTTy: jupyter notebook --ip=0.0.0.0 --port=8888 --no
 101_ObjectCategories
 ├── train
 │   ├── accordion
-|   ├── airplanes
-|   ├── ...
+│   ├── airplanes
+│   ├── ...
 │   └── yin_yang
 ├── val
 │   └── *empty*
