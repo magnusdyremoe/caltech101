@@ -43,7 +43,7 @@ Input following line in VM PuTTy: jupyter notebook --ip=0.0.0.0 --port=8888 --no
     ├── ...
     └── yin_yang
 ```
-4. Now zip the entire dataset.
+4. Now zip 101_ObjectCategories.
 5. Sign up to Google cloud console.
 6. Create a virtual machine. Tutorial from https://www.youtube.com/watch?v=Db4FfhXDYS8&ab_channel=JinayShah
 7. Open the jupyter notebook and upload the zipped data.
