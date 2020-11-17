@@ -8,3 +8,12 @@ Virtual machine made to run on Google cloud. For tutorial on how to run the vm f
 
 Input following line in VM PuTTy: jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser &
 
+### Step by step guide to replicate this project. ###
+
+1. Download the Caltech101 dataset from kaggle here https://www.kaggle.com/athota1/caltech101 .
+2. Within the Caltech101 folder assign a folder named *train* containing all images in the dataset. Assign two empty folders -- *val* and *test*.
+3. Run *split_test_train.py* on your local machine. The images should now be distibuted 75% to training, 15% to validation and 10% to testing. Now zip the entire dataset.
+4. Sign up to Google cloud console.
+5. Create a virtual machine. Tutorial from https://www.youtube.com/watch?v=Db4FfhXDYS8&ab_channel=JinayShah
+6. Open the jupyter notebook and upload the zipped data.
+7. Run either one of the notebooks.
