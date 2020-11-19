@@ -43,8 +43,10 @@ Input following line in VM PuTTy: jupyter notebook --ip=0.0.0.0 --port=8888 --no
     ├── ...
     └── yin_yang
 ```
-4. Now zip 101_ObjectCategories.
+4. Now zip 101_ObjectCategories and name it 101_ObjectCategories_test.
 5. Sign up to Google cloud console.
 6. Create a virtual machine. Tutorial from https://www.youtube.com/watch?v=Db4FfhXDYS8&ab_channel=JinayShah
-7. Open the jupyter notebook and upload the zipped data.
-8. Run either one of the notebooks.
+7. Start the virtual machine as described in the guide.
+8. Upload the zipped data.
+9. Run the unzip notebook to unzip the data. The data is now ready to use.
+10. Run either one of the notebooks.
