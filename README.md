@@ -33,7 +33,7 @@ The 4 notebooks with CNN models contains:
 └── test
     └── *empty*
 ```
-3. Run *split_test_train.py* on your local machine. The images should now be distibuted 75% to training, 15% to validation and 10% to testing. Your folder structure should now look like the following:
+3. Run *split_train_validation_test.py* on your local machine. The images should now be distibuted 75% to training, 15% to validation and 10% to testing. Your folder structure should now look like the following:
 ```bash
 101_ObjectCategories
 ├── train
