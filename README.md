@@ -1,20 +1,21 @@
 # Caltech101
+Note to self: Input following line in VM PuTTy: jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser &
+
 Image classificiation on data set caltech101.
 
-This repo consists of 5 notebooks, model weights, model histories and scripts to visualize the data.
+### This repo consists of 5 notebooks, model weights, model histories and scripts to visualize the data. ###
 
 The 5 notebooks are:
 * One notebook to unzip a folder in jupyter notebook virtual machine.
 * Two notebooks for a 6 layer CNN with and without augmented data as input.
 * Two notebooks using transfer learning with a pre-trained VGG16 model with and without augmented data as input.
 
+
 The 4 notebooks with CNN models contains:
 * Data pre-processing.
 * The respective models with training and prediction. Also containing plots for top-1 accuracy, top-5 accuracy and loss for the training history.
 * A detailed classification report yielding precision, recall and f1-score for all classes in the dataset.
 
-
-Note to self: Input following line in VM PuTTy: jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser &
 
 ### Step by step guide to replicate this project. ###
 
