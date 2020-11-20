@@ -7,8 +7,8 @@ Image classificiation on data set caltech101.
 
 The 5 notebooks are:
 * One notebook to unzip a folder in jupyter notebook virtual machine.
-* Two notebooks for a 6 layer CNN with and without augmented data as input.
-* Two notebooks using transfer learning with a pre-trained VGG16 model with and without augmented data as input.
+* Two notebooks for a 6 layer CNN with and without augmented data as input. These notebooks are identical, apart from data pre-processing.
+* Two notebooks using transfer learning with a pre-trained VGG16 model with and without augmented data as input. These notebooks are identical, apart from data pre-processing.
 
 
 The 4 notebooks with CNN models contains:
