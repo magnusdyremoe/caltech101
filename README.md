@@ -56,6 +56,7 @@ The 4 notebooks with CNN models contains:
 5. Sign up to Google cloud console.
 6. Create a virtual machine. Tutorial from https://www.youtube.com/watch?v=Db4FfhXDYS8&ab_channel=JinayShah
 7. Start the virtual machine as described in the guide.
-8. Upload the zipped data.
+8. Upload the zipped data and the notebooks.
 9. Run the unzip notebook to unzip the data. The data is now ready to use.
 10. Run either one of the notebooks.
+11. Alternatively, if you do not want to train the network, upload the model weights and the model histories and run any notebook from the cell where stored data is loaded to create a reconstructed model.
