@@ -9,7 +9,7 @@ The 5 notebooks are:
 * Two notebooks using transfer learning with a pre-trained VGG16 model with and without augmented data as input.
 
 The 4 notebooks with CNN models contains:
-* Data pre-processing with.
+* Data pre-processing.
 * The respective models with training and prediction. Also containing plots for top-1 accuracy, top-5 accuracy and loss for the training history.
 * A detailed classification report yielding precision, recall and f1-score for all classes in the dataset.
 
