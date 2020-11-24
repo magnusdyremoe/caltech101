@@ -59,4 +59,6 @@ The 4 notebooks with CNN models contains:
 8. Upload the zipped data and the notebooks.
 9. Run the unzip notebook to unzip the data. The data is now ready to use.
 10. Run either one of the notebooks.
-11. Alternatively, if you do not want to train the network, upload the model weights and the model histories and run any notebook from the cell where stored data is loaded to create a reconstructed model. This will require zipping the folders and unzipping them in jupyter notebook, similar to the image folders.
+11. Alternatively, if you do not want to train the network, upload the model weights and the model histories and run the 6layer CNN notebooks from the cell where stored data is loaded to create a reconstructed model. This will require zipping the folders and unzipping them in jupyter notebook, similar to the image folders.
+
+NB: The model weight for the modified VGG16 networks are not included in the repo. These weight files are roughly 500 MB which far exceeds Githubs limit of 100 MB per file.
