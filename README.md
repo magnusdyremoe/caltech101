@@ -3,7 +3,7 @@ Note to self: Input following line in VM PuTTy: jupyter notebook --ip=0.0.0.0 --
 
 Image classificiation on data set caltech101.
 
-### This repo consists of 5 notebooks, model weights, model histories and scripts to visualize the data. ###
+### This repo consists of 5 notebooks (src), model weights, model histories and scripts to visualize the data (utils). ###
 
 The 5 notebooks are:
 * One notebook to unzip a folder in jupyter notebook virtual machine.
